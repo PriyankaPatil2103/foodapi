@@ -5,7 +5,7 @@ const FoodSchema = mongoose.Schema({
   FoodType: String,
   FoodCategory: String,
   FoodImg: String,
-  FoodPrize: Number,
+  FoodPrice: Number,
 });
 
 module.exports = mongoose.model("Food", FoodSchema);

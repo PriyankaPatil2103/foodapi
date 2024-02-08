@@ -13,7 +13,7 @@ router.post('/dologin',CustControler.doLogin);
 const FoodControler=require('../Controlers/FoodControlers');
 router.post('/addfood',FoodControler.addFood);
 router.get('/getallfood',FoodControler.getAllFood);
-router.post('/updatefoodprize',FoodControler.updateFoodPrize);
+router.post('/updatefoodprice',FoodControler.updateFoodPrice);
 router.post('/getfoodbytype',FoodControler.getFoodByType);
 router.post('/getfoodbycategory',FoodControler.getFoodByCategory);
 router.post('/deletefood',FoodControler.deleteFood);

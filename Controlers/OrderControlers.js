@@ -21,7 +21,7 @@ exports.addOrder = (req, res) => {
 exports.getAllOrders = (req, res) => {
   Order.find()
     .populate("CustId")
-    .populate("OrderItems.FoodId", "FoodName FoodPrize")
+    .populate("OrderItems.FoodId", "FoodName FoodPrice")
     .then((result) => {
       res.status(200).json(result);
     })
