@@ -22,4 +22,8 @@ router.post('/deletefood',FoodControler.deleteFood);
 const OrderControler=require('../Controlers/OrderControlers');
 router.post('/addorder',OrderControler.addOrder);
 router.get('/getallorders',OrderControler.getAllOrders);
+router.post('/getorderbyid',OrderControler.getOrderById);
+router.post('/getorderbycustid',OrderControler.getOrderByCustomerId);
+router.post("/updateOrderStatus",OrderControler.updateOrderStatus);
+router.post("/getOrderStatusById",OrderControler.getOrderStatusById);
 module.exports=router

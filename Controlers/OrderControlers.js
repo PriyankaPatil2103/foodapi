@@ -29,3 +29,52 @@ exports.getAllOrders = (req, res) => {
       res.status(500).send(err);
     });
 };
+
+exports.getOrderById = (req, res) => {
+  Order.findOne({ _id: req.body.OrderId })
+    .populate("CustId")
+    .populate("OrderItems.FoodId")
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.getOrderByCustomerId = (req, res) => {
+  Order.find()
+    .where("CustId")
+    .eq({ _id: req.body.CustId })
+    .where("OrderStatus")
+    .eq(req.body.OrderStatus)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.updateOrderStatus = (req, res) => {
+  Order.findByIdAndUpdate(req.body.oid,
+     { OrderStatus: req.body.OrderStatus })
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.getOrderStatusById = (req, res) => {
+  Order.find()
+    .where("OrderStatus")
+    .eq(req.body.OrderStatus)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).send(result);
+    });
+};
